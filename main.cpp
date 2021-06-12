@@ -73,7 +73,7 @@ void one(long number)               // 234567
 /**********************************************
  * TWO : The bottom of the call stack
  **********************************************/
-void two(long number)              // 345678
+void two(long &number)              // 345678
 {
     // start your display of the stack from this point
 
