@@ -11,7 +11,7 @@ string function()
     {
         // Seed character array with integer values
        text1[i] = i;
-       cout << text1[i] << endl;
+       //cout << text1[i] << endl;
     }
 
     // Fourth Item on the stack
@@ -25,6 +25,15 @@ string function()
 
 }
 
+string validateBuffer()
+{
+    char str[10];
+    cin >> str[10];
+
+
+    return str;
+}
+
 int main()
 {  
     //Top of the stack 
@@ -34,6 +43,13 @@ int main()
     output = function();
 
     cout << output << endl;
+    
+    string newOutput = "";
+
+    newOutput = validateBuffer();
+
+    cout << newOutput << endl;
+
 
     return 0;
 }
