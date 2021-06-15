@@ -4,7 +4,7 @@
 #include <istream>
 using namespace std;
 
-void function(char *text1, char *text2)
+void exploit(char *text1, char *text2)
 {   
     try{
         cout << "Enter your text: ";
@@ -13,26 +13,21 @@ void function(char *text1, char *text2)
      
     }catch(int err){
         cout << err << endl;
-    };
-       
+    }; 
     cout << "Unvalidated Input: " << text2 << endl;
-
-/***************************************************/
-
+    
+    /*** MITIGATION ***/
     cout << "Enter your text: ";
     //cin.get(); 
     cin.getline(text1, 10);
     cin.ignore(1,'\n');
-
     cout << "Validated output: " << text1 << endl;
 }
 
 int main()
 {  
-    // Bottom of the stack 
-    char text1[10];
+    char text1[10]; // Bottom of the stack 
     char text2[10];
-    function(text1,text2);   // New Validated buffer size
-
+    exploit(text1,text2);   // New Validated buffer size
     return 0;
 } 
