@@ -1,55 +1,38 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <istream>
 using namespace std;
 
-string function()
+void function(char *text1, char *text2)
 {   
-    //third item on the stack
-    char text1[10];
-    for(int i=0; i < 10; i++)
-    {
-        // Seed character array with integer values
-       text1[i] = i;
-       //cout << text1[i] << endl;
-    }
+    try{
+        cout << "Enter your text: ";
+    cin >> text2;   //N validation on buffer size
+    cin.ignore(1,'\n');               //a large amount of characters will cause a fatal error.
+     
+    }catch(int err){
+        cout << err << endl;
+    };
+       
+    cout << "Unvalidated Input: " << text2 << endl;
 
-    // Fourth Item on the stack
-    char text2[10];
-    cout << "Enter the thing: ";
-   
-    cin >> text2;  //No validation on buffer size
+/***************************************************/
 
-    //cout << text1[1] << endl;
-    return text2;
+    cout << "Enter your text: ";
+    //cin.get(); 
+    cin.getline(text1, 10);
+    cin.ignore(1,'\n');
 
-}
-
-string validateBuffer()
-{
-    char str[10];
-    cin >> str[10];
-
-
-    return str;
+    cout << "Validated output: " << text1 << endl;
 }
 
 int main()
 {  
-    //Top of the stack 
-    string output = "";
-
-    //value returned from function stored for output 
-    output = function();
-
-    cout << output << endl;
-    
-    string newOutput = "";
-
-    newOutput = validateBuffer();
-
-    cout << newOutput << endl;
-
+    // Bottom of the stack 
+    char text1[10];
+    char text2[10];
+    function(text1,text2);   // New Validated buffer size
 
     return 0;
-}
+} 
